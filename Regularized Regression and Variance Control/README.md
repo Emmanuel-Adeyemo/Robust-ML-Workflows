@@ -25,17 +25,19 @@ Generally, this method will select an alpha higher than that with the best mean,
 generalization. Ridge (L2) emerged as the strongest candidate with a CV $R^2$ of 0.52, five percentage 
 points higher than the base model CV $R^2$.
 
-5. Bootstrap: A bootstrap simulation was performed to verify model stability by looking at the 95 confidence interval of $R^2$.
+![Ridge Regularization Plot](./images/ridge_opt.png)
+
+6. Bootstrap: A bootstrap simulation was performed to verify model stability by looking at the 95 confidence interval of $R^2$.
 Model showed a decent stability with 95% CI bounds between 0.3 and 0.58. Out of Bag $R^2$ was 0.53, which is very close
 to the CV $R^2$ (0.52) as well as the test $R^2$ (0.56). This consistency shows a solid model that can perform generalization on new data.
 
-6. Feature Importance: Coefficients were extracted to assess feature importance. The
+7. Feature Importance: Coefficients were extracted to assess feature importance. The
 top 20 features, the most influential 11 features were just main effect features, while the 
 remaining 9 were a mix of interaction and quadratic features. This confirmed that the relationship is non-linear 
 and some specific feature combinations are important for model performance, balancing bias-variance
 trade off.
 
-7. Final Thoughts:
+8. Final Thoughts:
 a. Low bias in the baseline model: Simplistic assumption that the model function is linear, while in reality, 
 relationship is non-linear.
     
