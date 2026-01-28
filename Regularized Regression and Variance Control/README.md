@@ -25,9 +25,9 @@ Generally, this method will select an alpha higher than that with the best mean,
 generalization. Ridge (L2) emerged as the strongest candidate with a CV $R^2$ of 0.52, five percentage 
 points higher than the base model CV $R^2$.
 
-5. Bootstrap: A bootstrap simulation was performed to verify model stability by looking at the 95 confidence interval of R2.
-Model showed a decent stability with bounds between 0.3 and 0.58. Out of Bag R2 was 0.53, which is very close
-to the CV R2 (0.52) as well as the test R2 (0.56). This consistency shows a solid model that can perform generalization on new data.
+5. Bootstrap: A bootstrap simulation was performed to verify model stability by looking at the 95 confidence interval of $R^2$.
+Model showed a decent stability with 95% CI bounds between 0.3 and 0.58. Out of Bag $R^2$ was 0.53, which is very close
+to the CV $R^2$ (0.52) as well as the test $R^2$ (0.56). This consistency shows a solid model that can perform generalization on new data.
 
 6. Feature Importance: Coefficients were extracted to assess feature importance. The
 top 20 features, the most influential 11 features were just main effect features, while the 
@@ -45,7 +45,7 @@ model.
     
 c. Regularization: This process helped to recover performance by limiting overfitting and encouraging simpler models
 that generalize better. Instead of just selecting the alpha value with the best mean from a grid search,
-a 1-Standard Error (1-SE) technique was employed to allow selection of a larger alpha with a decent mean value (i.e., within 1 SE 
+a (1-SE) technique was employed to allow selection of a larger alpha with a decent mean value (i.e., within 1 SE 
 of the best mean). This also allowed for better generalization on new data. Ridge (L2) regularization 
 performed slightly better than lasso and elastic net. This indicates that model performance is driven by 
 many predictors with small or medium-sized effects.
@@ -53,4 +53,4 @@ Lastly, the top 20 influential features involve a combination of main, quadratic
 confirming the relationship as non-linear.
 
 d. Next Steps: Exploring non-linear estimators like tree-based methods and ensembles, given that poly 
-terms were necessary to improve R2.
+terms were necessary to improve $R^2$.
