@@ -37,7 +37,9 @@ remaining 9 were a mix of interaction and quadratic features. This confirmed tha
 and some specific feature combinations are important for model performance, balancing bias-variance
 trade off.
 
-8. Final Thoughts:
+![Ridge Regularization Plot](./images/top_feat.png)
+
+9. Final Thoughts:
 a. Low bias in the baseline model: Simplistic assumption that the model function is linear, while in reality, 
 relationship is non-linear.
     
