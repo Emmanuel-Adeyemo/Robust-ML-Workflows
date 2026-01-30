@@ -9,3 +9,5 @@ Status: Completed (Test $MAE$: 9.18, Test $R^2$: 0.56, OOB $R^2$: 0.53).
 
 ![Ridge Regularization Plot](./data/images/ridge_opt.png)
 
+02. Tree models and ensembles
+Status: In progress
