@@ -95,20 +95,20 @@ resource "google_compute_firewall" "tf-mod2-lab1-fwrule2" {
 
 
 // Create four VMs.
-// VPC1, Subnet1
+// VM1, VPC1, Subnet1
 // https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance
 resource "google_compute_instance" "tf-mod2-lab1-vm1" {
-  name = "tf-mod2-lab-vm1"
+  name = "tf-mod2-lab1-vm1"
   machine_type = "e2-micro"
   zone = "us-central1-a"  
-  depends_on = [google_compute_network.tf-mod2-lab1-vpc1, google_compute_subnetwork.tf-mod2-demo1-subnet1]
+  depends_on = [google_compute_network.tf-mod2-lab1-vpc1, google_compute_subnetwork.tf-mod2-lab1-subnet1]
   network_interface {
     // This indicates to give a public IP address
     access_config {
       network_tier = "STANDARD"
     }
-    network = "tf-mod2-demo1-network1"
-    subnetwork = "tf-mod2-demo1-subnet1"
+    network = "tf-mod2-lab1-vpc1"
+    subnetwork = "tf-mod2-lab1-subnet1"
   }
 
   boot_disk {
@@ -121,6 +121,92 @@ resource "google_compute_instance" "tf-mod2-lab1-vm1" {
   }
 
 }
+
+
+// VM2, VPC2, subnet2
+resource "google_compute_instance" "tf-mod2-lab1-vm2" {
+  name = "tf-mod2-lab1-vm2"
+  machine_type = "e2-micro"
+  zone = "us-central1-a"  
+  depends_on = [google_compute_network.tf-mod2-lab1-vpc2, google_compute_subnetwork.tf-mod2-lab1-subnet2]
+  network_interface {
+    // This indicates to give a public IP address
+    access_config {
+      network_tier = "STANDARD"
+    }
+    network = "tf-mod2-lab1-vpc2"
+    subnetwork = "tf-mod2-lab1-subnet2"
+  }
+
+  boot_disk {
+    initialize_params {
+      image = "debian-12-bookworm-v20240312"
+    }
+  } 
+  metadata = {
+    startup-script = "sudo apt update; sudo apt -y install netcat-traditional ncat;"
+  }
+
+}
+
+
+
+// VM3, VPC2, subnet2
+resource "google_compute_instance" "tf-mod2-lab1-vm3" {
+  name = "tf-mod2-lab1-vm3"
+  machine_type = "e2-micro"
+  zone = "us-central1-a"  
+  depends_on = [google_compute_network.tf-mod2-lab1-vpc2, google_compute_subnetwork.tf-mod2-lab1-subnet2]
+  network_interface {
+    // This indicates to give a public IP address
+    access_config {
+      network_tier = "STANDARD"
+    }
+    network = "tf-mod2-lab1-vpc2"
+    subnetwork = "tf-mod2-lab1-subnet2"
+  }
+
+  boot_disk {
+    initialize_params {
+      image = "debian-12-bookworm-v20240312"
+    }
+  } 
+  metadata = {
+    startup-script = "sudo apt update; sudo apt -y install netcat-traditional ncat;"
+  }
+
+}
+
+
+// VM4, VPC2, subnet3
+resource "google_compute_instance" "tf-mod2-lab1-vm4" {
+  name = "tf-mod2-lab1-vm4"
+  machine_type = "e2-micro"
+  zone = "us-central1-a"  
+  depends_on = [google_compute_network.tf-mod2-lab1-vpc2, google_compute_subnetwork.tf-mod2-lab1-subnet3]
+  network_interface {
+    // This indicates to give a public IP address
+    access_config {
+      network_tier = "STANDARD"
+    }
+    network = "tf-mod2-lab1-vpc2"
+    subnetwork = "tf-mod2-lab1-subnet3"
+  }
+
+  boot_disk {
+    initialize_params {
+      image = "debian-12-bookworm-v20240312"
+    }
+  } 
+  metadata = {
+    startup-script = "sudo apt update; sudo apt -y install netcat-traditional ncat;"
+  }
+
+}
+
+
+
+
 
 //terraform show -json | jq
 
