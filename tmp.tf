@@ -159,9 +159,7 @@ resource "google_compute_instance" "tf-mod2-lab1-vm3" {
   depends_on = [google_compute_network.tf-mod2-lab1-vpc2, google_compute_subnetwork.tf-mod2-lab1-subnet2]
   network_interface {
     // This indicates to give a public IP address
-    access_config {
-      network_tier = "STANDARD"
-    }
+    
     network = "tf-mod2-lab1-vpc2"
     subnetwork = "tf-mod2-lab1-subnet2"
   }
@@ -186,9 +184,7 @@ resource "google_compute_instance" "tf-mod2-lab1-vm4" {
   depends_on = [google_compute_network.tf-mod2-lab1-vpc2, google_compute_subnetwork.tf-mod2-lab1-subnet3]
   network_interface {
     // This indicates to give a public IP address
-    access_config {
-      network_tier = "STANDARD"
-    }
+    
     network = "tf-mod2-lab1-vpc2"
     subnetwork = "tf-mod2-lab1-subnet3"
   }
