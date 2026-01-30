@@ -13,35 +13,73 @@ terraform {
 // https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_network#id
 
 
-// Create the VPC
+// Create two VPCs
 
-resource "google_compute_network" "tf-mod2-demo1-network1" {
-  name = "tf-mod2-demo1-network1"
+resource "google_compute_network" "tf-mod2-lab1-vpc1" {
+  name = "tf-mod2-lab1-vpc1"
+  auto_create_subnetworks = "false"
+}
+
+resource "google_compute_network" "tf-mod2-lab1-vpc2" {
+  name = "tf-mod2-lab1-vpc2"
   auto_create_subnetworks = "false"
 }
 
 
-// Create the subnet
+// Create three subnets
 // https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_subnetwork
 
-resource "google_compute_subnetwork" "tf-mod2-demo1-subnet1" {
-  name          = "tf-mod2-demo1-subnet1"
+resource "google_compute_subnetwork" "tf-mod2-lab1-subnet1" {
+  name          = "tf-mod2-lab1-subnet1"
+  ip_cidr_range = "10.1.0.0/16"
+  region        = "us-central1"
+  network       = google_compute_network.tf-mod2-lab1-vpc1.id
+}
+
+resource "google_compute_subnetwork" "tf-mod2-lab1-subnet2" {
+  name          = "tf-mod2-lab1-subnet2"
   ip_cidr_range = "10.2.0.0/16"
   region        = "us-central1"
-  network       = google_compute_network.tf-mod2-demo1-network1.id
+  network       = google_compute_network.tf-mod2-lab1-vpc2.id
+}
+
+resource "google_compute_subnetwork" "tf-mod2-lab1-subnet3" {
+  name          = "tf-mod2-lab1-subnet3"
+  ip_cidr_range = "10.3.0.0/16"
+  region        = "us-central1"
+  network       = google_compute_network.tf-mod2-lab1-vpc2.id
 }
 
 
-
+// One for each VPC
 // Create Firewall rule - allow icmp, tcp:22 (ssh), and tcp:1234 (custom)
 //https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall
-resource "google_compute_firewall" "tf-mod2-demo1-fwrule1" {
-  project = "orbital-linker-398719"
-  name        = "tf-mod2-demo1-fwrule1"
-  network     = "tf-mod2-demo1-network1"
+resource "google_compute_firewall" "tf-mod2-lab1-fwrule1" {
+  project = "classproject-485806"
+  name        = "tf-mod2-lab1-fwrule1"
+  network     = "tf-mod2-lab1-vpc1"
   // need the network created before the firewall rule
   // I noticed sometimes terraform didn't detect the dependency, so making explicit.
-  depends_on = [google_compute_network.tf-mod2-demo1-network1]
+  depends_on = [google_compute_network.tf-mod2-lab1-vpc1]
+
+  allow {
+    protocol  = "tcp"
+    ports     = ["22", "1234"]
+  }
+  allow {
+    protocol = "icmp"
+  }
+  source_ranges = ["0.0.0.0/0"]
+}
+
+
+// Firewall 2
+resource "google_compute_firewall" "tf-mod2-lab1-fwrule2" {
+  project = "classproject-485806"
+  name        = "tf-mod2-lab1-fwrule2"
+  network     = "tf-mod2-lab1-vpc2"
+
+  depends_on = [google_compute_network.tf-mod2-lab1-vpc2]
 
   allow {
     protocol  = "tcp"
@@ -56,13 +94,14 @@ resource "google_compute_firewall" "tf-mod2-demo1-fwrule1" {
 
 
 
-// Create a VM, and put it inside of subnet1
+// Create four VMs.
+// VPC1, Subnet1
 // https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance
-resource "google_compute_instance" "tf-mod2-demo1-vm1" {
-  name = "tf-mod2-demo1-vm1"
+resource "google_compute_instance" "tf-mod2-lab1-vm1" {
+  name = "tf-mod2-lab-vm1"
   machine_type = "e2-micro"
   zone = "us-central1-a"  
-  depends_on = [google_compute_network.tf-mod2-demo1-network1, google_compute_subnetwork.tf-mod2-demo1-subnet1]
+  depends_on = [google_compute_network.tf-mod2-lab1-vpc1, google_compute_subnetwork.tf-mod2-demo1-subnet1]
   network_interface {
     // This indicates to give a public IP address
     access_config {
