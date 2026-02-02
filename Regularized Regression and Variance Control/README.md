@@ -13,7 +13,7 @@ assumptions.
 ***2. Addressing Model Assumptions:*** To stabilize variance, a Yeo-Johnson transformation was applied to the target variable y. The post-transformation CV $R^2$ was 0.44, 
     
 ***3. Feature Engineering:*** Introducing higher-order and interaction terms led to a jump in features from  15 to 136.
-This surge initially led to lower metrics than the baseline. This is probably a result of 
+This surge initially led to lower metrics ($R^2$ of 0.19) than the baseline. This is probably a result of 
 overfitting or multicollinearity of features. It is known from EDA that multiple features are correlated,
 the poly features will most likely add to it. 
     
