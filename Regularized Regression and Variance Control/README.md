@@ -21,7 +21,7 @@ the poly features will most likely add to it.
 Grid search for alpha did not select the alpha with the best mean;
 instead, it selected an alpha value with a mean value within one standard error from best_mean.
 Generally, this method selects an alpha value higher than that with the best mean, allowing better 
-generalization. Ridge (L2) emerged as the strongest candidate with a CV $R^2$ of 0.52, five percentage 
+generalization on new data. Ridge (L2) emerged as the strongest candidate with a CV $R^2$ of 0.52, five percentage 
 points higher than the base model CV $R^2$.
 
 ![Ridge Regularization Plot](./images/ridge_opt.png)
