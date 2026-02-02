@@ -26,7 +26,7 @@ points higher than the base model CV $R^2$.
 
 ![Ridge Regularization Plot](./images/ridge_opt.png)
 
-***6. Bootstrap:*** A bootstrap simulation was performed to verify model stability by looking at the 95 confidence interval of $R^2$. Model showed a decent stability with 95% CI bounds between 0.3 and 0.58. Out of Bag $R^2$ was 0.53, which is very close to the CV $R^2$ (0.52) as well as the test $R^2$ (0.56). This consistency demonstrates a solid model that generalizes to new data.
+***6. Bootstrap:*** A bootstrap simulation was performed to verify model stability by looking at the 95% confidence interval of $R^2$. Model showed a decent stability with 95% CI bounds between 0.3 and 0.58. Out of Bag $R^2$ was 0.53, which is very close to the CV $R^2$ (0.52) as well as the test $R^2$ (0.56). This consistency demonstrates a solid model that generalizes to new data.
 
 ***7. Feature Importance:*** Coefficients were extracted to assess feature importance. The
 top 20 features, the most influential 11 features were just main effect features, while the 
