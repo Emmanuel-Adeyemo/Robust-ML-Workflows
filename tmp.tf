@@ -26,14 +26,14 @@ resource "google_compute_network" "vpc2" {
 
 resource "google_compute_subnetwork" "subnet1" {
   name          = "subnet1"
-  ip_cidr_range = "10.1.0.0/16"
+  ip_cidr_range = "173.12.0.0/16"
   region        = "us-central1"
   network       = google_compute_network.vpc1.id
 }
 
 resource "google_compute_subnetwork" "subnet2" {
   name          = "subnet2"
-  ip_cidr_range = "10.2.0.0/16"
+  ip_cidr_range = "173.15.0.0/16"
   region        = "us-central1"
   network       = google_compute_network.vpc2.id
 }
