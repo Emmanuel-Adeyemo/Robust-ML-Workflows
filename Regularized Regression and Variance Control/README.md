@@ -36,7 +36,7 @@ trade off.
 
 ![Ridge Regularization Plot](./images/top_feat.png)
 
-***9. Final Thoughts:***
+***9. Final Thoughts:*** <br>
 ***a. Low bias in the baseline model:*** Simplistic assumption that the model function is linear, while in reality, the 
 relationship is non-linear.
     
