@@ -19,8 +19,8 @@ the poly features will most likely add to it.
     
 ***4. Regularization:*** Three Regularization Methods are employed. Lasso, Ridge, and Elastic Net.
 Grid search for alpha did not select the alpha with the best mean;
-instead, it selected an alpha value with mean value within one standard error from best_mean.
-Generally, this method will select an alpha higher than that with the best mean, allowing better 
+instead, it selected an alpha value with a mean value within one standard error from best_mean.
+Generally, this method selects an alpha value higher than that with the best mean, allowing better 
 generalization. Ridge (L2) emerged as the strongest candidate with a CV $R^2$ of 0.52, five percentage 
 points higher than the base model CV $R^2$.
 
