@@ -32,7 +32,7 @@ a. The 1-SE Rule: Instead of selecting the alpha that produced the absolute high
 a simpler model (larger alpha) whose performance is within one standard error of the best result, allowing for
 better generalization. 
 
- b. Winning Model: Lasso (L1) achieved a CV $R2$ of 0.50 and was selected as the final estimator, effectively zeroing out 91 redundant features and retaining only 48 most impactful predictors.
+ b. Winning Model: Lasso (L1) achieved a CV $R2$ of 0.50 and was selected as the final estimator, effectively zeroing out 91 redundant features and retaining only 71 most impactful predictors.
 
 
  ****3. Model Validation and Performance Stability:**** 
