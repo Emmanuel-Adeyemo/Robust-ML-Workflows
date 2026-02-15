@@ -11,6 +11,7 @@ Status: Completed (Test $R^2$: 0.55 (41% lift over Baseline), OOB $R^2$: 0.52, T
 ![Ridge Regularization Plot](./data/images/lasso.png)
 
 02. Tree models and ensembles:
+   
 Goal: Evaluate non-parametric approaches to capture interactions without explicit polynomial expansion.
 
    Status: In progress
