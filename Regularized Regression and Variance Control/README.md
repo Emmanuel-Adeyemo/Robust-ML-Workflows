@@ -48,7 +48,7 @@ c. Lasso vs Baseline Model Performance of Test Data: The lasso model resulted in
 
 ****4. Key Takeaways****
 
-a. Feature Selection: Only 48 out of 139 features were necessary for peak performance.
+a. Feature Selection: Only 71 out of 139 features were necessary for peak performance.
 
 b. Non-linearity: The top influential features were a mix of main effects and interaction terms, confirming
 that a standard linear approach was insufficient for this dataset.
