@@ -57,4 +57,4 @@ c. Reliability: Using the 1-SE sacrificed a small amount of training accuracy to
 
 
 d. Next Steps: Exploring non-linear estimators like tree-based methods and ensembles, given that poly 
-terms were necessary to improve R2.
+terms were necessary to improve $R2$.
