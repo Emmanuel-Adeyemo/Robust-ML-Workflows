@@ -27,6 +27,7 @@ Initial Impact: This surge initially resulted in poorer metrics (Test $R2$ = -0.
 ****2. Regularization Strategy:****    
    
 To prevent overfitting, Lasso, Ridge, and Elastic Net were compared.
+
 a. The 1-SE Rule: Instead of selecting the alpha that produced the absolute highest $R2$, the model selected
 a simpler model (larger alpha) whose performance is within one standard error of the best result, allowing for
 better generalization. 
@@ -35,6 +36,7 @@ better generalization.
 
 
  ****3. Model Validation and Performance Stability:**** 
+ 
 a. Bootstrap Analysis: A bootstrap simulation was performed to establish a 95% confidence interval for $R^2$ 
 (0.36 and 0.56).
 
@@ -45,6 +47,7 @@ c. Lasso vs Baseline Model Performance of Test Data: The lasso model resulted in
 
 
 ****4. Key Takeaways****
+
 a. Feature Selection: Only 48 out of 139 features were necessary for peak performance.
 
 b. Non-linearity: The top influential features were a mix of main effects and interaction terms, confirming
