@@ -8,25 +8,26 @@ The goal was to predict a target variable while strictly managing the bias-varia
 inherent in high-dimensional feature spaces. The final implementation utilizes Lasso (L1) Regularization combined
 with the One-Standard-Error (1-SE) rule for alpha selection.
     
-***Project Evolution & Methodology*** 
+***Project Evolution & Methodology***    
+
     ****1. Baseline Diagnostics and Transformation****
-    a. Initial Performance: The starting model achieved a CV R2 of 0.47.
+    a. Initial Performance: The starting model achieved a CV $R2$ of 0.47.
     b. Error Analysis: Residual Plot shows non-constant variance - heteroscedasticity, a violation of linear regression
     assumptions.
         
-   c. Addressing Model Assumptions: To stabilize variance, a Yeo-Johnson transformation was applied to the target variable y. The post-transformation CV R2 was 0.45, providing a more statistically sound 
+   c. Addressing Model Assumptions: To stabilize variance, a Yeo-Johnson transformation was applied to the target variable y. The post-transformation CV $R2$ was 0.45, providing a more statistically sound 
 foundation for further complexity.
 
    d. Feature Engineering: Expanded the initial 15 features to 139 using Polynomial features, allowing the model to 
 capture complex, non-linear signals.
-    Initial Impact: This surge initially resulted in poorer metrics (Test R2 = -0.82) compared to the baseline. This is probably a feature of severe overfitting (Train R2 = 0.68) and high multicollinearity, as confirmed during EDA.
+    Initial Impact: This surge initially resulted in poorer metrics (Test $R2$ = -0.82) compared to the baseline. This is probably a feature of severe overfitting (Train $R2$ = 0.68) and high multicollinearity, as confirmed during EDA.
 
    ****2. Regularization Strategy:****    
    To prevent overfitting, Lasso, Ridge, and Elastic Net were compared.
-a. The 1-SE Rule: Instead of selecting the alpha that produced the absolute highest R2, the model selected
+a. The 1-SE Rule: Instead of selecting the alpha that produced the absolute highest $R2$, the model selected
 a simpler model (larger alpha) whose performance is within one standard error of the best result, allowing for
 better generalization. 
- b. Winning Model: Lasso (L1) achieved a CV R2 of 0.50 and was selected as the final estimator, effectively zeroing out 91 redundant features and retaining
+ b. Winning Model: Lasso (L1) achieved a CV $R2$ of 0.50 and was selected as the final estimator, effectively zeroing out 91 redundant features and retaining
 only 48 most impactful predictors.
 
 
