@@ -38,12 +38,12 @@ better generalization.
  ****3. Model Validation and Performance Stability:**** 
  
 a. Bootstrap Analysis: A bootstrap simulation was performed to establish a 95% confidence interval for $R^2$ 
-(0.36 and 0.56).
+(0.30 and 0.57).
 
 b. Consistency: The Out of Bag (OOB) score of 0.52 closely aligns with the cross-validation score of 0.50,
 confirming generalization.
 
-c. Lasso vs Baseline Model Performance of Test Data: The lasso model resulted in an $R2$ of 0.55 on the test (held-out) data while the baseline model was only able to achieve an $R2$ of 0.3,9 even though it has a CV $R2$ of 0.47. The regularized model closed the generalization gap, performing better in the test data than in the cross-validation and providing an absolute increase of 0.16 $R2$ on test data.
+c. Lasso vs Baseline Model Performance of Test Data: The lasso model resulted in an $R2$ of 0.56 on the test (held-out) data while the baseline model was only able to achieve an $R2$ of 0.39 even though it has a CV $R2$ of 0.47. The regularized model closed the generalization gap, performing better in the test data than in the cross-validation and providing an absolute increase of 0.17 $R2$ on test data.
 
 
 ****4. Key Takeaways****
