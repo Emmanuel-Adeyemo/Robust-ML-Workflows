@@ -9,7 +9,7 @@ Result: Successfully reduced feature complexity from 139 to 71 predictors.
 
 Status: Completed (Test $R^2$: 0.56 (42% lift over Baseline), OOB $R^2$: 0.52, Test $MAE$: 9.46).  
 
-![Ridge Regularization Plot](./data/images/lasso.png)
+![Lasso Regularization Plot](./data/images/lasso.png)
 
 02. Tree models and ensembles:
    
